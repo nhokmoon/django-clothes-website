@@ -98,7 +98,7 @@ class VertificationView(View):
             user.is_staff = True
             user.save()
             messages.success(request, 'Account activated successfully')
-        return redirect('login')
+        return render(request, 'accounts/activate.html', {"msg": msg})
 
 from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView,PasswordResetConfirmView,PasswordResetCompleteView
 
