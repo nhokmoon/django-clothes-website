@@ -26,6 +26,7 @@ def login_view(request):
             user = form.get_user()
             login(request, user)
             if user.is_superuser:
+                return redirect("/")
                 return redirect("/admin/")
             elif user.is_staff:
                 return redirect("/")
