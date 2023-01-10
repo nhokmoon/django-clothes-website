@@ -27,7 +27,7 @@ def login_view(request):
             login(request, user)
             if user.is_superuser:
                 return redirect("/")
-                return redirect("/admin/")
+                window.open("/admin/")
             elif user.is_staff:
                 return redirect("/")
     else:
