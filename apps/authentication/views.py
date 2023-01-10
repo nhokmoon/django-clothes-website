@@ -5,6 +5,7 @@ Copyright (c) 2019 - present AppSeed.us
 
 # Create your views here.
 from curses import window
+import webbrowser
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login
 from .forms import LoginForm, SignUpForm
@@ -27,8 +28,8 @@ def login_view(request):
             user = form.get_user()
             login(request, user)
             if user.is_superuser:
-                window.location.href = '/'
-                window.open("/admin/")
+               webbrowser.open_new_tab('/admin/')
+               webbrowser.open('/')
             elif user.is_staff:
                 return redirect("/")
     else:
