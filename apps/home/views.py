@@ -29,13 +29,22 @@ def pages(request):
     try:
 
         load_template = request.path.split('/')[-1]
-
         if load_template == 'admin':
             return HttpResponseRedirect(reverse('admin:index'))
         context['segment'] = load_template
-
         html_template = loader.get_template('home/' + load_template)
-        return HttpResponse(html_template.render(context, request))
+        
+        if request.method == 'POST':
+            form = ProductForm(request.POST)
+            if form.is_valid():
+                product = form.save(commit=False)
+                product.user = request.user
+                product.save()
+                return redirect('products')
+        else:
+            form = ProductForm()
+        context['form'] = form
+        return render(request, 'home/' + load_template, context)
 
     except template.TemplateDoesNotExist:
 

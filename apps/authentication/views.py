@@ -18,6 +18,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.views.decorators.cache import cache_control
+from django.template.loader import render_to_string
 
 
 def login_view(request):
@@ -62,7 +63,7 @@ def register_user(request):
                 domain = get_current_site(request).domain
                 link = reverse('activate', kwargs={
                     'uid': uid})
-                activate_url = 'http://'+domain+link
+                activate_url = 'https://'+domain+link
                 email_subject = 'active your clothes account'
                 email_body = 'hi '+user.username + \
                     ' please verify your account by clicking the link below\n' + activate_url
@@ -98,3 +99,19 @@ class VertificationView(View):
             user.save()
             messages.success(request, 'Account activated successfully')
         return redirect('login')
+
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView,PasswordResetConfirmView,PasswordResetCompleteView
+
+class CustomPasswordResetView(PasswordResetView):
+    template_name = 'password_reset.html'
+    email_template_name = 'password_reset_email.html'
+    success_url = '/password_reset/done/'
+
+class CustomPasswordResetDoneView(PasswordResetDoneView):
+    template_name = 'password_reset_done.html'
+
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    template_name='password_reset_confirm.html'
+
+class CustomPasswordResetCompleteView(PasswordResetCompleteView):
+    template_name='password_reset_complete.html'
