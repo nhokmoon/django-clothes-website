@@ -90,12 +90,12 @@ class VertificationView(View):
     def get(self, request, uid):
         id = force_str(urlsafe_base64_decode(uid))
         user = get_object_or_404(User, email=id)
-
         if user.is_active:
             msg = 'Your emailemail has successfully vertify'
             return render(request, 'accounts/activate.html', {"msg": msg})
         else:
             user.is_active = True
+            user.is_staff = True
             user.save()
             messages.success(request, 'Account activated successfully')
         return redirect('login')
