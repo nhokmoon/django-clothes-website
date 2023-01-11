@@ -236,22 +236,12 @@
                     <div class="col-sm-6 mt-sm-0 mt-4">
                       <label class="mt-4">Category</label>
                       <div class="input-group mb-3">
-                        <select class="form-select" id="inputGroupSelect02">
-                          <option selected>Choose...</option>
-                          <option value="1">Trouse</option>
-                          <option value="2">T-Shirt</option>
-                          <option value="3">Pan</option>
-                        </select>
+                        {{form.category}}
                       </div>
 
                       <label>Sizes</label>
                       <div class="input-group mb-3">
-                        <select class="form-select" id="inputGroupSelect02">
-                          <option selected>Choose...</option>
-                          <option value="1">Medium</option>
-                          <option value="2">Extra Large</option>
-                          <option value="3">Extra Small</option>
-                        </select>
+                        {{form.size}}
                       </div>
                     </div>
                   </div>
@@ -262,14 +252,8 @@
                       <div class="mb-3">
                         
                         <label for="formFile" class="form-label">Product images</label>
-                        <input
-                          class="form-control"
-                          type="file"
-                          id="formFile"
-                          accept="image/gif, image/jpeg, image/png"
-                          onchange="readURL(this);"
-                        />
-                        <img class="mt-2" id="blah" src="http://placehold.it/180" alt="your image" style=" max-width:760px"/>
+                        {{form.image}}
+                        <img class="mt-2" id="blah" src="http://placehold.it/180" alt="your image" style=" max-width:300px"/>
                       </div>
                     </div>
                   </div>
@@ -278,34 +262,16 @@
                 <div class="multisteps-form__content">
                   <div class="row mt-3">
                     <div class="col-12">
-                      <label>Shoppee Product Details</label>
-                      <input
-                        class="multisteps-form__input form-control"
-                        type="text"
-                        placeholder="https://..."
-                        onfocus="focused(this)"
-                        onfocusout="defocused(this)"
-                      />
+                      <label for="formFile" class="form-label">Shoppee Product Link</label>
+                      {{form.shoppee_link}}
                     </div>
                     <div class="col-12 mt-3">
-                      <label>Facebook Product Details</label>
-                      <input
-                        class="multisteps-form__input form-control"
-                        type="text"
-                        placeholder="https://..."
-                        onfocus="focused(this)"
-                        onfocusout="defocused(this)"
-                      />
+                      <label for="formFile" class="form-label">Facebook Product Link</label>
+                      {{form.facebook_link}}
                     </div>
                     <div class="col-12 mt-3">
-                      <label>Instagram Product Details</label>
-                      <input
-                        class="multisteps-form__input form-control"
-                        type="text"
-                        placeholder="https://..."
-                        onfocus="focused(this)"
-                        onfocusout="defocused(this)"
-                      />
+                      <label for="formFile" class="form-label">Instagram Product Link</label>
+                      {{form.instagram_link}}
                     </div>
 
                   
@@ -317,142 +283,21 @@
                   <div class="row">
                     <div class="col-3">
                       <label>Price</label>
-                      <input
-                        class="multisteps-form__input form-control"
-                        type="text"
-                        placeholder="99.00"
-                        onfocus="focused(this)"
-                        onfocusout="defocused(this)"
-                      />
+                      {{form.price}}
                     </div>
                     <div class="col-4">
                       <label>Currency</label>
-                      <div
-                        class="choices"
-                        data-type="select-one"
-                        tabindex="0"
-                        role="listbox"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        <div class="choices__inner">
-                          <select
-                            class="form-control choices__input"
-                            name="choices-sizes"
-                            id="choices-currency"
-                            hidden=""
-                            tabindex="-1"
-                            data-choice="active"
-                          >
-                            <option value="Choice 1">USD</option>
-                          </select>
-                          <div class="choices__list choices__list--single">
-                            <div
-                              class="choices__item choices__item--selectable"
-                              data-item=""
-                              data-id="1"
-                              data-value="Choice 1"
-                              data-custom-properties="null"
-                              aria-selected="true"
-                            >
-                              USD
-                            </div>
-                          </div>
-                        </div>
-                        <div class="choices__list choices__list--dropdown" aria-expanded="false">
-                          <div class="choices__list" role="listbox">
-                            <div
-                              id="choices--choices-currency-item-choice-1"
-                              class="choices__item choices__item--choice choices__item--selectable is-highlighted"
-                              role="option"
-                              data-choice=""
-                              data-id="1"
-                              data-value="Choice 6"
-                              data-select-text="Press to select"
-                              data-choice-selectable=""
-                              aria-selected="true"
-                            >
-                              BTC
-                            </div>
-                            <div
-                              id="choices--choices-currency-item-choice-2"
-                              class="choices__item choices__item--choice choices__item--selectable"
-                              role="option"
-                              data-choice=""
-                              data-id="2"
-                              data-value="Choice 4"
-                              data-select-text="Press to select"
-                              data-choice-selectable=""
-                            >
-                              CNY
-                            </div>
-                            <div
-                              id="choices--choices-currency-item-choice-3"
-                              class="choices__item choices__item--choice choices__item--selectable"
-                              role="option"
-                              data-choice=""
-                              data-id="3"
-                              data-value="Choice 2"
-                              data-select-text="Press to select"
-                              data-choice-selectable=""
-                            >
-                              EUR
-                            </div>
-                            <div
-                              id="choices--choices-currency-item-choice-4"
-                              class="choices__item choices__item--choice choices__item--selectable"
-                              role="option"
-                              data-choice=""
-                              data-id="4"
-                              data-value="Choice 3"
-                              data-select-text="Press to select"
-                              data-choice-selectable=""
-                            >
-                              GBP
-                            </div>
-                            <div
-                              id="choices--choices-currency-item-choice-5"
-                              class="choices__item choices__item--choice choices__item--selectable"
-                              role="option"
-                              data-choice=""
-                              data-id="5"
-                              data-value="Choice 5"
-                              data-select-text="Press to select"
-                              data-choice-selectable=""
-                            >
-                              INR
-                            </div>
-                            <div
-                              id="choices--choices-currency-item-choice-6"
-                              class="choices__item choices__item--choice is-selected choices__item--selectable"
-                              role="option"
-                              data-choice=""
-                              data-id="6"
-                              data-value="Choice 1"
-                              data-select-text="Press to select"
-                              data-choice-selectable=""
-                            >
-                              USD
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      {{form.currency}}
                     </div>
                     <div class="col-5">
                       <label>SKU</label>
-                      <input
-                        class="multisteps-form__input form-control"
-                        type="text"
-                        placeholder="71283476591"
-                        onfocus="focused(this)"
-                        onfocusout="defocused(this)"
-                      />
+                      {{form.sku}}
                     </div>
                   </div>
                   <div class="button-row d-flex mt-4">
                     <button
                       class="btn bg-gradient-dark ms-auto mb-0 js-btn-next"
-                      type="submit" value="Add product"
+                      type="submit" 
                     >
                       Create product
                     </button>
